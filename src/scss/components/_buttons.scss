@@ -1,0 +1,150 @@
+.button {
+    display: inline-flex;
+    @include font-size(8, mobile, true, false, true);
+    @if ( get-font-size(8, desktop) != get-font-size(8, mobile) ) {
+        @include media( '>medium' ) {
+            @include font-size(8, desktop, true, false, true);
+        }
+    }
+    @include font-weight(semibold);
+    line-height: 16px;
+    text-decoration: none !important;
+	text-transform: uppercase;
+    background-color: color(bg, 3);
+    color: color(typography, 3) !important;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    justify-content: center;
+    padding: 16px 32px;
+	height: 48px;
+    text-align: center;
+    white-space: nowrap;
+
+	&:hover {
+		background: lighten(color(bg, 3), 1%);
+	}
+
+    &:active {
+        outline: 0;
+    }
+
+    &::before {
+        border-radius: 2px;
+    }
+}
+
+.button-sm {
+    padding: 8px 24px;
+	height: 32px;
+}
+
+.button-primary {
+	background: mix(color(primary, 1), color(primary, 2));
+    background: linear-gradient(65deg, color(primary, 1) 0, color(primary, 2) 100%);
+
+    &:hover {
+		background: lighten(mix(color(primary, 1), color(primary, 2)), 2%);
+        background: linear-gradient(65deg, lighten(color(primary, 1), 2%) 0, lighten(color(primary, 2), 2%) 100%);
+    }
+}
+
+.button-block {
+    display: flex;
+}
+
+.button-block {
+    display: flex;
+	width: 100%;
+}
+
+@include media( '<=medium' ) {
+
+	.button-wide-mobile {
+		width: 100%;
+		max-width: 280px;
+	}
+}
+
+
+.app-download-area {
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-preferred-size: 1;
+    flex-basis: 1;
+    margin-top: 50px;
+    justify-content: center;
+}
+.app-download-btn:first-child {
+    margin-right: 20px;
+}
+.app-download-btn {
+    a {
+        border: 1px solid #ddd;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: 15px 30px;
+        border-radius: 30px 30px 30px 0;
+        -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        text-decoration: none;
+        &:active,
+        &:focus,
+        &:hover {
+            text-decoration: none;
+        }
+        &.active,
+        &:hover {
+            border-color: transparent;
+            background-color: color(primary, 1);
+            color: #ddd;
+            & svg {
+                fill: #ffffff;
+            }
+        }
+        & svg {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+            -webkit-transition-duration: 200ms;
+            -o-transition-duration: 200ms;
+            transition-duration: 200ms;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1;
+            -webkit-transition-duration: 200ms;
+            -o-transition-duration: 200ms;
+            transition-duration: 200ms;
+            span {
+                font-size: 12px;
+                display: block;
+            }
+        }
+    }
+    &.app-download-btn--green {
+        a {
+            border-color: transparent;
+            background-color: color(primary, 1);
+            color: #ddd;
+            & svg {
+                fill: #ffffff;
+            }
+            &.active,
+            &:hover {
+                background-color: color(primary, 3);
+            }
+        }
+    }
+}
